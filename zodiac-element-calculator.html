@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five Elements Calculator | Wu Xing by Birth Year</title>
+  <meta property="og:title" content="Chinese Zodiac Element Calculator — Find Your Wu Xing">
+  <meta property="og:description" content="Calculate your Chinese zodiac element. Discover how Wood, Fire, Earth, Metal & Water shape your personality.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zodiacquest.com/zodiac-element-calculator.html">
+  <meta property="og:site_name" content="ZodiacQuest">
+<meta name="description" content="Calculate your Chinese Five Elements (Wu Xing) by birth year. Discover your element personality, strengths, and compatible elements."/>
+<meta name="keywords" content="five elements calculator, wu xing calculator, chinese zodiac element, wood fire earth metal water, element personality">
+<link rel="canonical" href="https://zodiacquest.pages.dev/zodiac-element-calculator.html">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Five Elements Calculator",
+  "url": "https://zodiacquest.pages.dev/zodiac-element-calculator.html",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">🐉 ZodiacQuest</a>
+    <nav class="main-nav">
+      <a href="index.html">Calculator</a>
+      <a href="zodiac-signs.html">12 Signs</a>
+      <a href="compatibility.html">Compatibility</a>
+      <a href="lucky-numbers.html">Lucky Numbers</a>
+      <a href="wuxing.html">Wu Xing</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="tool-section">
+    <div class="ad-placeholder ad-top" data-ad-slot="top"></div>
+
+    <h1>Five Elements (Wu Xing) Calculator</h1>
+    <p class="subtitle">Discover your elemental nature based on your birth year in the Chinese zodiac cycle.</p>
+
+    <div class="calculator-card">
+      <div class="calc-inputs">
+        <div class="input-group">
+          <label for="birthYear">Your Birth Year</label>
+          <input type="number" id="birthYear" value="2000" min="1900" max="2100" placeholder="e.g. 1990">
+        </div>
+        <button id="calcBtn" class="btn-primary">Find My Element</button>
+      </div>
+    </div>
+
+    <div id="result" class="result-card element-result" style="display:none;">
+      <div class="result-header">
+        <span id="elementIcon" class="element-icon"></span>
+        <div>
+          <h2 id="elementName"></h2>
+          <p id="elementZodiac" class="element-zodiac"></p>
+        </div>
+      </div>
+
+      <div class="element-traits">
+        <div class="trait-row">
+          <div class="trait-label">Personality</div>
+          <div id="traitPersonality" class="trait-value"></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-label">Strengths</div>
+          <div id="traitStrengths" class="trait-value"></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-label">Challenges</div>
+          <div id="traitChallenges" class="trait-value"></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-label">Lucky Color</div>
+          <div id="traitColor" class="trait-value"></div>
+        </div>
+        <div class="trait-row">
+          <div class="trait-label">Direction</div>
+          <div id="traitDirection" class="trait-value"></div>
+        </div>
+      </div>
+
+      <div class="element-cycle">
+        <h3>🔄 Element Relationships</h3>
+        <div class="cycle-grid">
+          <div class="cycle-box generates">
+            <h4>✨ Feeds / Generates</h4>
+            <p id="generates"></p>
+          </div>
+          <div class="cycle-box generated-by">
+            <h4>🌱 Nourished by</h4>
+            <p id="generatedBy"></p>
+          </div>
+          <div class="cycle-box overcomes">
+            <h4>⚔️ Overcomes</h4>
+            <p id="overcomes"></p>
+          </div>
+          <div class="cycle-box overcome-by">
+            <h4>⚠️ Weakened by</h4>
+            <p id="overcomeBy"></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="result-note">Your birth year element is one of the key pillars in Chinese astrology. For a complete reading, also consider your zodiac animal, month, day, and hour of birth (the Four Pillars / Ba Zi).</p>
+    </div>
+
+    <div class="ad-placeholder ad-bottom" data-ad-slot="bottom"></div>
+  </section>
+
+  <section class="content-section">
+    <h2>Understanding the Five Elements</h2>
+    <p>Wu Xing (五行), or the Five Elements, is a fundamental concept in Chinese philosophy. Unlike the Western four elements, these are not physical substances but dynamic energies or phases that describe how things interact and transform.</p>
+
+    <div class="elements-overview">
+      <div class="element-card wood">
+        <h3>🌳 Wood (木)</h3>
+        <p><strong>Years ending in:</strong> 4 or 5</p>
+        <p>Growth, creativity, flexibility, leadership, expansion</p>
+        <p>Season: Spring | Direction: East | Color: Green</p>
+      </div>
+      <div class="element-card fire">
+        <h3>🔥 Fire (火)</h3>
+        <p><strong>Years ending in:</strong> 6 or 7</p>
+        <p>Passion, energy, charisma, transformation, warmth</p>
+        <p>Season: Summer | Direction: South | Color: Red</p>
+      </div>
+      <div class="element-card earth">
+        <h3>🪨 Earth (土)</h3>
+        <p><strong>Years ending in:</strong> 8 or 9</p>
+        <p>Stability, reliability, practicality, nurturing, grounding</p>
+        <p>Season: Late Summer | Direction: Center | Color: Yellow/Brown</p>
+      </div>
+      <div class="element-card metal">
+        <h3>⚙️ Metal (金)</h3>
+        <p><strong>Years ending in:</strong> 0 or 1</p>
+        <p>Precision, strength, integrity, justice, refinement</p>
+        <p>Season: Autumn | Direction: West | Color: White/Gold</p>
+      </div>
+      <div class="element-card water">
+        <h3>💧 Water (水)</h3>
+        <p><strong>Years ending in:</strong> 2 or 3</p>
+        <p>Wisdom, adaptability, intuition, flow, communication</p>
+        <p>Season: Winter | Direction: North | Color: Blue/Black</p>
+      </div>
+    </div>
+
+    <h3>The Two Cycles</h3>
+    <p><strong>Generating Cycle (相生):</strong> Wood → Fire → Earth → Metal → Water → Wood. Each element feeds the next, like a parent nourishing a child.</p>
+    <p><strong>Controlling Cycle (相克):</strong> Wood → Earth → Water → Fire → Metal → Wood. Each element keeps the next in check, maintaining balance.</p>
+
+    <p>For a deeper understanding of how the Five Elements shape your life, explore our <a href="wuxing.html">complete Wu Xing guide</a>.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="zodiac-signs.html">12 Zodiac Signs</a>
+      <a href="compatibility.html">Compatibility</a>
+      <a href="lucky-numbers.html">Lucky Numbers</a>
+      <a href="wuxing.html">Wu Xing</a>
+      <a href="countdown.html">Lunar New Year Countdown</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 ZodiacQuest. For entertainment purposes only.</p>
+  </div>
+</footer>
+
+<script src="assets/js/zodiac.js"></script>
+<script>
+(function(){
+  var elements = {
+    wood:   { name:'Wood', icon:'🌳', color:'Green, Brown', direction:'East', personality:'Creative, ambitious, and growth-oriented. You have a natural ability to lead and inspire others.', strengths:'Leadership, creativity, flexibility, vision', challenges:'Impatience, stubbornness, burnout from overgrowth',
+              generates:'Fire (wood fuels flame)', generatedBy:'Water (water nourishes trees)', overcomes:'Earth (roots hold soil)', overcomeBy:'Metal (axe cuts wood)' },
+    fire:   { name:'Fire', icon:'🔥', color:'Red, Orange, Purple', direction:'South', personality:'Passionate, charismatic, and dynamic. You light up any room and thrive on excitement.', strengths:'Energy, enthusiasm, leadership, charm', challenges:'Impulsiveness, burnout, short temper',
+              generates:'Earth (fire becomes ash/earth)', generatedBy:'Wood (wood feeds fire)', overcomes:'Metal (fire melts metal)', overcomeBy:'Water (water douses fire)' },
+    earth:  { name:'Earth', icon:'🪨', color:'Yellow, Brown, Beige', direction:'Center', personality:'Stable, reliable, and nurturing. You are the rock that others depend on.', strengths:'Loyalty, practicality, patience, reliability', challenges:'Stubbornness, resistance to change, over-caution',
+              generates:'Metal (earth contains minerals)', generatedBy:'Fire (fire creates earth/ash)', overcomes:'Water (earth contains water)', overcomeBy:'Wood (trees break earth)' },
+    metal:  { name:'Metal', icon:'⚙️', color:'White, Gold, Silver', direction:'West', personality:'Strong, precise, and disciplined. You value integrity and have high standards.', strengths:'Focus, determination, integrity, analytical mind', challenges:'Rigidity, coldness, perfectionism',
+              generates:'Water (metal melts into liquid)', generatedBy:'Earth (earth produces metal)', overcomes:'Wood (metal cuts wood)', overcomeBy:'Fire (fire melts metal)' },
+    water:  { name:'Water', icon:'💧', color:'Black, Blue, Dark Gray', direction:'North', personality:'Wise, intuitive, and adaptable. You flow around obstacles and read people well.', strengths:'Intuition, wisdom, flexibility, communication', challenges:'Indecision, moodiness, being too passive',
+              generates:'Wood (water nourishes plants)', generatedBy:'Metal (metal condenses water)', overcomes:'Fire (water extinguishes fire)', overcomeBy:'Earth (earth absorbs water)' }
+  };
+
+  var zodiacAnimals = ['Monkey','Rooster','Dog','Pig','Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat'];
+
+  function getElement(year) {
+    var lastDigit = year % 10;
+    var mapping = { 0:'metal', 1:'metal', 2:'water', 3:'water', 4:'wood', 5:'wood', 6:'fire', 7:'fire', 8:'earth', 9:'earth' };
+    return mapping[lastDigit];
+  }
+
+  function calculate() {
+    var year = parseInt(document.getElementById('birthYear').value);
+    if (!year || year < 1900 || year > 2100) {
+      alert('Please enter a valid year between 1900 and 2100');
+      return;
+    }
+    var elKey = getElement(year);
+    var el = elements[elKey];
+    var animalIndex = (year - 4) % 12;
+    if (animalIndex < 0) animalIndex += 12;
+    var animal = zodiacAnimals[animalIndex];
+
+    document.getElementById('elementIcon').textContent = el.icon;
+    document.getElementById('elementName').textContent = el.name + ' Element';
+    document.getElementById('elementZodiac').textContent = year + ' • ' + animal + ' zodiac sign';
+    document.getElementById('traitPersonality').textContent = el.personality;
+    document.getElementById('traitStrengths').textContent = el.strengths;
+    document.getElementById('traitChallenges').textContent = el.challenges;
+    document.getElementById('traitColor').textContent = el.color;
+    document.getElementById('traitDirection').textContent = el.direction;
+    document.getElementById('generates').textContent = el.generates;
+    document.getElementById('generatedBy').textContent = el.generatedBy;
+    document.getElementById('overcomes').textContent = el.overcomes;
+    document.getElementById('overcomeBy').textContent = el.overcomeBy;
+
+    var result = document.getElementById('result');
+    result.style.display = 'block';
+    result.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  document.getElementById('calcBtn').addEventListener('click', calculate);
+  document.getElementById('birthYear').addEventListener('keypress', function(e){ if(e.key==='Enter') calculate(); });
+  // Auto-calculate
+  calculate();
+})();
+</script>
+<script src="assets/js/ads.js"></script>
+</body>
+</html>

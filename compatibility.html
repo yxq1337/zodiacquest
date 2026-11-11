@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Zodiac Compatibility Test | Love Match</title>
+  <meta property="og:title" content="Chinese Zodiac Compatibility Test — Find Your Match">
+  <meta property="og:description" content="Test Chinese zodiac compatibility between any two signs. Get detailed love, friendship & career match scores.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zodiacquest.com/compatibility.html">
+  <meta property="og:site_name" content="ZodiacQuest">
+  <meta name="description" content="Test Chinese zodiac compatibility between any two signs. Get love match scores and relationship insights based on Chinese astrology."/>
+  <meta name="keywords" content="chinese zodiac compatibility, zodiac love match, relationship compatibility, chinese astrology compatibility, zodiac couple">
+  <link rel="canonical" href="https://zodiacquest.pages.dev/compatibility.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Chinese Zodiac Compatibility Test",
+    "applicationCategory": "LifestyleApplication",
+    "description": "Test love compatibility between two Chinese zodiac signs."
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-icon">🐉</span>
+        <span>ZodiacQuest</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="/">Zodiac Calculator</a></li>
+          <li><a href="compatibility.html" class="active">Compatibility</a></li>
+          <li><a href="zodiac-signs.html">All Signs</a></li>
+          <li><a href="wuxing.html">Five Elements</a></li>
+          <li><a href="lucky-numbers.html">Lucky Numbers</a></li>
+          <li><a href="daily-horoscope.html">Daily Horoscope</a></li>
+          <li><a href="countdown.html">Spring Festival</a></li>
+          <li><a href="blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="tagline">★ Love & Relationships ★</div>
+      <h1>Chinese Zodiac Compatibility Test</h1>
+      <p class="subtitle">Find out how compatible you and your partner are</p>
+    </section>
+
+    <div class="ad-slot" data-ad-slot="top_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">💑 Select Your Signs</h2>
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+        <div class="form-group">
+          <label for="sign1">Your Sign</label>
+          <select id="sign1"></select>
+        </div>
+        <div class="form-group">
+          <label for="sign2">Partner's Sign</label>
+          <select id="sign2"></select>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" id="checkBtn" style="width:100%">
+        💞 Check Compatibility
+      </button>
+
+      <div class="result" id="result">
+        <div class="compat-display">
+          <div class="compat-zodiac">
+            <div class="emoji" id="sign1Emoji"></div>
+            <div class="name" id="sign1Name"></div>
+          </div>
+          <div class="compat-score">
+            <div class="compat-number" id="score"></div>
+            <div class="compat-level" id="level"></div>
+          </div>
+          <div class="compat-zodiac">
+            <div class="emoji" id="sign2Emoji"></div>
+            <div class="name" id="sign2Name"></div>
+          </div>
+        </div>
+        
+        <div class="compat-bar">
+          <div class="compat-bar-fill" id="scoreBar"></div>
+        </div>
+
+        <h3 style="color:var(--primary-dark); margin:1rem 0 0.5rem;">Compatibility Reading</h3>
+        <p id="compatText" style="color:var(--text-light); line-height:1.8;"></p>
+        
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem; margin-top:1.5rem;">
+          <div class="detail-item">
+            <div class="detail-label">Love</div>
+            <div class="detail-value" id="loveScore"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Friendship</div>
+            <div class="detail-value" id="friendScore"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Career</div>
+            <div class="detail-value" id="careerScore"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Communication</div>
+            <div class="detail-value" id="commScore"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot" data-ad-slot="bottom_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">📚 About Zodiac Compatibility</h2>
+      <p style="color:var(--text-light); line-height:1.8;">
+        Chinese zodiac compatibility is based on the ancient <em>San He</em> (三合, Three Harmonies) and 
+        <em>Liu Chong</em> (六冲, Six Clashes) systems. Each zodiac animal has signs that naturally harmonize 
+        with it, and others that may create friction.
+      </p>
+      <p style="color:var(--text-light); line-height:1.8; margin-top:0.75rem;">
+        The <strong>Three Harmonies (San He)</strong> are groups of three signs that form the best partnerships:
+        Rat-Dragon-Monkey, Ox-Snake-Rooster, Tiger-Horse-Dog, and Rabbit-Goat-Pig.
+      </p>
+      <p style="color:var(--text-light); line-height:1.8; margin-top:0.75rem;">
+        The <strong>Six Clashes (Liu Chong)</strong> are pairs of signs that may find it harder to get along:
+        Rat-Horse, Ox-Goat, Tiger-Monkey, Rabbit-Rooster, Dragon-Dog, and Snake-Pig.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>🐉 ZodiacQuest</h4>
+        <p style="font-size:0.9rem; line-height:1.6;">
+          Free online Chinese zodiac calculator and astrology tools.
+        </p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="/">Zodiac Calculator</a>
+        <a href="compatibility.html">Compatibility Test</a>
+        <a href="zodiac-signs.html">All Zodiac Signs</a>
+        <a href="wuxing.html">Five Elements</a>
+        <a href="countdown.html">Spring Festival</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ZodiacQuest. All rights reserved.
+    </div>
+  </footer>
+  <script src="assets/js/zodiac.js?v=3"></script>
+    <script src="assets/js/compat.js?v=3"></script>
+    <script src="assets/js/ads.js?v=4"></script>
+    <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('show');
+    });
+
+    // Populate selects
+    const sign1 = document.getElementById('sign1');
+    const sign2 = document.getElementById('sign2');
+    ChineseZodiac.ZODIACS.forEach((z, i) => {
+      sign1.innerHTML += `<option value="${i}">${z.emoji} ${z.name}</option>`;
+      sign2.innerHTML += `<option value="${i}">${z.emoji} ${z.name}</option>`;
+    });
+    sign2.value = '4'; // Dragon default
+
+    function checkCompat() {
+      const i1 = parseInt(sign1.value);
+      const i2 = parseInt(sign2.value);
+      const z1 = ChineseZodiac.ZODIACS[i1];
+      const z2 = ChineseZodiac.ZODIACS[i2];
+      const compat = ChineseZodiac.getCompatibility(i1, i2);
+
+      document.getElementById('sign1Emoji').textContent = z1.emoji;
+      document.getElementById('sign1Name').textContent = z1.name;
+      document.getElementById('sign2Emoji').textContent = z2.emoji;
+      document.getElementById('sign2Name').textContent = z2.name;
+      document.getElementById('score').textContent = compat.score + '%';
+      document.getElementById('level').textContent = compat.level;
+      document.getElementById('scoreBar').style.width = compat.score + '%';
+      document.getElementById('compatText').textContent = compat.description;
+      document.getElementById('loveScore').textContent = compat.breakdown.love + '%';
+      document.getElementById('friendScore').textContent = compat.breakdown.friendship + '%';
+      document.getElementById('careerScore').textContent = compat.breakdown.career + '%';
+      document.getElementById('commScore').textContent = compat.breakdown.communication + '%';
+
+      document.getElementById('result').classList.add('show');
+      document.getElementById('result').scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+
+    document.getElementById('checkBtn').addEventListener('click', checkCompat);
+    sign1.addEventListener('change', checkCompat);
+    sign2.addEventListener('change', checkCompat);
+    checkCompat();
+  </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wu Xing Five Elements | Calculator & Guide</title>
+  <meta property="og:title" content="Wu Xing — Complete Guide to Chinese Five Elements">
+  <meta property="og:description" content="Learn about Wu Xing (Five Elements): Wood, Fire, Earth, Metal, Water. Their cycles, relationships and meanings.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zodiacquest.com/wuxing.html">
+  <meta property="og:site_name" content="ZodiacQuest">
+  <meta name="description" content="Calculate your Chinese Five Elements (Wu Xing) by birth date. Learn about Wood, Fire, Earth, Metal, Water and their relationships."/>
+  <meta name="keywords" content="wu xing calculator, five elements chinese astrology, wood fire earth metal water, wuxing element, birth element calculator">
+  <link rel="canonical" href="https://zodiacquest.pages.dev/wuxing.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Five Elements Calculator",
+    "description": "Calculate your Wu Xing element by birth date."
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-icon">🐉</span>
+        <span>ZodiacQuest</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="/">Zodiac Calculator</a></li>
+          <li><a href="compatibility.html">Compatibility</a></li>
+          <li><a href="zodiac-signs.html">All Signs</a></li>
+          <li><a href="wuxing.html" class="active">Five Elements</a></li>
+          <li><a href="lucky-numbers.html">Lucky Numbers</a></li>
+          <li><a href="daily-horoscope.html">Daily Horoscope</a></li>
+          <li><a href="countdown.html">Spring Festival</a></li>
+          <li><a href="blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="tagline">★ Wu Xing 五行 ★</div>
+      <h1>Five Elements Calculator</h1>
+      <p class="subtitle">Discover your dominant element and its influence on your life</p>
+    </section>
+
+    <div class="ad-slot" data-ad-slot="top_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">🌀 Enter Your Birth Date</h2>
+      <div class="form-group">
+        <label for="birthDate">Date of Birth</label>
+        <input type="date" id="birthDate" value="1990-01-01">
+      </div>
+      <button class="btn btn-primary" id="calcBtn" style="width:100%">
+        🔥 Find My Element
+      </button>
+
+      <div class="result" id="result">
+        <div class="result-emoji" id="elementEmoji"></div>
+        <div class="result-name" id="elementName"></div>
+        
+        <p id="elementDesc" style="color:var(--text-light); line-height:1.8; text-align:left; margin-top:1rem;"></p>
+        
+        <h3 style="color:var(--primary-dark); margin:1rem 0 0.5rem;">Element Qualities</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:1rem; text-align:center;">
+          <div class="detail-item">
+            <div class="detail-label">Season</div>
+            <div class="detail-value" id="elemSeason"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Direction</div>
+            <div class="detail-value" id="elemDirection"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Color</div>
+            <div class="detail-value" id="elemColor"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Lucky Number</div>
+            <div class="detail-value" id="elemNumber"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot" data-ad-slot="bottom_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">🌀 The Five Elements (Wu Xing)</h2>
+      <div class="elements-grid">
+        <div class="element-card" style="border-top:4px solid var(--wood-color);">
+          <div style="font-size:2.5rem;">🌳</div>
+          <h3 style="color:var(--wood-color);">Wood</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; line-height:1.7;">
+            Growth, creativity, flexibility. Wood people are compassionate, ambitious, and always seeking to expand.
+          </p>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">
+            <strong>Generates:</strong> Fire &nbsp;|&nbsp; <strong>Controls:</strong> Earth
+          </p>
+        </div>
+        <div class="element-card" style="border-top:4px solid var(--fire-color);">
+          <div style="font-size:2.5rem;">🔥</div>
+          <h3 style="color:var(--fire-color);">Fire</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; line-height:1.7;">
+            Passion, energy, charisma. Fire people are dynamic, enthusiastic, and natural leaders.
+          </p>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">
+            <strong>Generates:</strong> Earth &nbsp;|&nbsp; <strong>Controls:</strong> Metal
+          </p>
+        </div>
+        <div class="element-card" style="border-top:4px solid var(--earth-color);">
+          <div style="font-size:2.5rem;">⛰️</div>
+          <h3 style="color:var(--earth-color);">Earth</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; line-height:1.7;">
+            Stability, reliability, nurturing. Earth people are grounded, practical, and deeply loyal.
+          </p>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">
+            <strong>Generates:</strong> Metal &nbsp;|&nbsp; <strong>Controls:</strong> Water
+          </p>
+        </div>
+        <div class="element-card" style="border-top:4px solid var(--metal-color);">
+          <div style="font-size:2.5rem;">⚔️</div>
+          <h3 style="color:var(--metal-color);">Metal</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; line-height:1.7;">
+            Strength, precision, justice. Metal people are disciplined, principled, and excel at organization.
+          </p>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">
+            <strong>Generates:</strong> Water &nbsp;|&nbsp; <strong>Controls:</strong> Wood
+          </p>
+        </div>
+        <div class="element-card" style="border-top:4px solid var(--water-color);">
+          <div style="font-size:2.5rem;">💧</div>
+          <h3 style="color:var(--water-color);">Water</h3>
+          <p style="color:var(--text-light); font-size:0.9rem; line-height:1.7;">
+            Wisdom, intuition, adaptability. Water people are insightful, artistic, and go with the flow.
+          </p>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">
+            <strong>Generates:</strong> Wood &nbsp;|&nbsp; <strong>Controls:</strong> Fire
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>🐉 ZodiacQuest</h4>
+        <p style="font-size:0.9rem; line-height:1.6;">
+          Free online Chinese zodiac calculator and astrology tools.
+        </p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="/">Zodiac Calculator</a>
+        <a href="compatibility.html">Compatibility Test</a>
+        <a href="zodiac-signs.html">All Zodiac Signs</a>
+        <a href="wuxing.html">Five Elements</a>
+        <a href="countdown.html">Spring Festival</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ZodiacQuest. All rights reserved.
+    </div>
+  </footer>
+  <script src="assets/js/zodiac.js?v=3"></script>
+    <script src="assets/js/compat.js?v=3"></script>
+    <script src="assets/js/ads.js?v=4"></script>
+    <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('show');
+    });
+
+    const elementInfo = {
+      wood: {
+        emoji: '🌳',
+        name: 'Wood',
+        desc: 'You are a Wood element person! Like a tree reaching for the sky, you have natural growth energy and creative vitality. You are compassionate, kind-hearted, and always looking to expand your horizons. Wood types excel in artistic pursuits, education, and leadership roles where they can nurture others. Your flexibility allows you to adapt to change while staying rooted in your values.',
+        season: 'Spring',
+        direction: 'East',
+        color: 'Green',
+        number: '3, 8'
+      },
+      fire: {
+        emoji: '🔥',
+        name: 'Fire',
+        desc: 'You are a Fire element person! Passionate, energetic, and charismatic — you light up every room you enter. Fire types are natural leaders who inspire others with their enthusiasm and vision. You thrive on excitement and new experiences. With your magnetic personality, you excel in entertainment, marketing, and any field that requires strong communication and drive.',
+        season: 'Summer',
+        direction: 'South',
+        color: 'Red',
+        number: '2, 7'
+      },
+      earth: {
+        emoji: '⛰️',
+        name: 'Earth',
+        desc: 'You are an Earth element person! Grounded, reliable, and nurturing — you are the rock that everyone depends on. Earth types are practical, hardworking, and deeply loyal to friends and family. You create stability wherever you go. With your methodical approach and caring nature, you excel in finance, healthcare, real estate, and any role that requires trust and responsibility.',
+        season: 'Late Summer',
+        direction: 'Center',
+        color: 'Yellow',
+        number: '5, 0'
+      },
+      metal: {
+        emoji: '⚔️',
+        name: 'Metal',
+        desc: 'You are a Metal element person! Strong, precise, and principled — you have an inner steel that few can match. Metal types are disciplined, organized, and have a keen eye for detail. You value integrity and strive for perfection in everything you do. With your analytical mind and sense of justice, you excel in law, engineering, management, and any field that rewards precision and structure.',
+        season: 'Autumn',
+        direction: 'West',
+        color: 'White',
+        number: '4, 9'
+      },
+      water: {
+        emoji: '💧',
+        name: 'Water',
+        desc: 'You are a Water element person! Wise, intuitive, and deeply creative — your mind flows like a river. Water types have powerful intuition and a natural understanding of human emotions. You are adaptable, diplomatic, and can find your way around any obstacle. With your artistic soul and philosophical nature, you excel in the arts, psychology, research, and any field that requires deep insight and imagination.',
+        season: 'Winter',
+        direction: 'North',
+        color: 'Black/Blue',
+        number: '1, 6'
+      }
+    };
+
+    function calculate() {
+      const date = document.getElementById('birthDate').value;
+      if (!date) return;
+
+      const dateObj = new Date(date + 'T00:00:00');
+      const zodiac = ChineseZodiac.getZodiacByDate(dateObj);
+      const elemKey = zodiac.element.name.toLowerCase();
+      const info = elementInfo[elemKey];
+
+      document.getElementById('elementEmoji').textContent = info.emoji;
+      document.getElementById('elementName').textContent = info.name + ' Element';
+      document.getElementById('elementDesc').textContent = info.desc;
+      document.getElementById('elemSeason').textContent = info.season;
+      document.getElementById('elemDirection').textContent = info.direction;
+      document.getElementById('elemColor').textContent = info.color;
+      document.getElementById('elemNumber').textContent = info.number;
+
+      document.getElementById('result').classList.add('show');
+      document.getElementById('result').scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+    document.getElementById('birthDate').addEventListener('change', calculate);
+    calculate();
+  </script>
+</body>
+</html>

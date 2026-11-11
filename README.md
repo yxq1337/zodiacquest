@@ -1,3 +1,0 @@
-# ZodiacQuest
-
-Zodiac tools website.

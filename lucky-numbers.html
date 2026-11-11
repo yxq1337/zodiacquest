@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Numbers & Colors by Zodiac Sign</title>
+  <meta property="og:title" content="Lucky Numbers by Chinese Zodiac Sign">
+  <meta property="og:description" content="Find your lucky numbers, lucky colors and lucky flowers based on your Chinese zodiac animal sign.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zodiacquest.com/lucky-numbers.html">
+  <meta property="og:site_name" content="ZodiacQuest">
+<meta name="description" content="Discover lucky numbers, colors, and unlucky numbers for each Chinese zodiac sign. Free instant lucky number lookup."/>
+<meta name="keywords" content="lucky numbers by zodiac, chinese zodiac lucky numbers, lucky colors, fortune numbers, zodiac lucky numbers calculator">
+<link rel="canonical" href="https://zodiacquest.pages.dev/lucky-numbers.html">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Zodiac Lucky Numbers Calculator",
+  "url": "https://zodiacquest.pages.dev/lucky-numbers.html",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">🐉 ZodiacQuest</a>
+    <nav class="main-nav">
+      <a href="index.html">Calculator</a>
+      <a href="zodiac-signs.html">12 Signs</a>
+      <a href="compatibility.html">Compatibility</a>
+      <a href="lucky-numbers.html" class="active">Lucky Numbers</a>
+      <a href="wuxing.html">Wu Xing</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="tool-section">
+    <div class="ad-placeholder ad-top" data-ad-slot="top"></div>
+
+    <h1>Chinese Zodiac Lucky Numbers & Colors</h1>
+    <p class="subtitle">Find your lucky numbers, lucky colors, and what to avoid based on your zodiac animal.</p>
+
+    <div class="calculator-card">
+      <div class="calc-inputs">
+        <div class="input-group">
+          <label for="zodiacSelect">Your Zodiac Sign</label>
+          <select id="zodiacSelect">
+            <option value="rat">Rat (鼠)</option>
+            <option value="ox">Ox (牛)</option>
+            <option value="tiger">Tiger (虎)</option>
+            <option value="rabbit">Rabbit (兔)</option>
+            <option value="dragon">Dragon (龙)</option>
+            <option value="snake">Snake (蛇)</option>
+            <option value="horse">Horse (马)</option>
+            <option value="goat">Goat (羊)</option>
+            <option value="monkey">Monkey (猴)</option>
+            <option value="rooster">Rooster (鸡)</option>
+            <option value="dog">Dog (狗)</option>
+            <option value="pig">Pig (猪)</option>
+          </select>
+        </div>
+        <button id="calcBtn" class="btn-primary">Show My Lucky Numbers</button>
+      </div>
+    </div>
+
+    <div id="result" class="result-card" style="display:none;">
+      <div class="result-header">
+        <span id="resultEmoji" class="result-emoji"></span>
+        <h2 id="resultTitle"></h2>
+      </div>
+
+      <div class="lucky-grid">
+        <div class="lucky-box lucky-numbers">
+          <h3>🍀 Lucky Numbers</h3>
+          <div id="luckyNumbers" class="number-display"></div>
+        </div>
+        <div class="lucky-box lucky-colors">
+          <h3>🎨 Lucky Colors</h3>
+          <div id="luckyColors" class="color-display"></div>
+        </div>
+        <div class="lucky-box unlucky-numbers">
+          <h3>⚠️ Unlucky Numbers</h3>
+          <div id="unluckyNumbers" class="number-display"></div>
+        </div>
+        <div class="lucky-box unlucky-colors">
+          <h3>🚫 Colors to Avoid</h3>
+          <div id="unluckyColors" class="color-display"></div>
+        </div>
+      </div>
+
+      <div class="lucky-tips">
+        <h3>💡 How to Use Your Lucky Numbers</h3>
+        <ul>
+          <li><strong>Lottery & games:</strong> Combine your lucky numbers for personal picks</li>
+          <li><strong>Important dates:</strong> Schedule key events on dates containing your lucky numbers</li>
+          <li><strong>Phone & license:</strong> Choose numbers that match your fortune</li>
+          <li><strong>Home & office:</strong> Use lucky colors in your workspace for positive energy</li>
+        </ul>
+        <p class="note">Note: Lucky numbers in Chinese culture are based on homophones — numbers that sound similar to words for fortune, wealth, and luck are considered auspicious.</p>
+      </div>
+    </div>
+
+    <div class="ad-placeholder ad-bottom" data-ad-slot="bottom"></div>
+  </section>
+
+  <section class="content-section">
+    <h2>About Chinese Zodiac Lucky Numbers</h2>
+    <p>Lucky numbers in Chinese culture have deep roots in linguistics and numerology. Numbers that sound similar to words with positive meanings are considered lucky, while those resembling words for death or misfortune are avoided.</p>
+
+    <h3>The Most Lucky Numbers in Chinese Culture</h3>
+    <ul>
+      <li><strong>8 (Ba):</strong> Sounds like "prosperity" (发 fa). The luckiest number of all.</li>
+      <li><strong>9 (Jiu):</strong> Sounds like "long-lasting" (久 jiu). Associated with eternity and the Emperor.</li>
+      <li><strong>6 (Liu):</strong> Sounds like "smooth" (顺 liu/shun). Brings smooth progress.</li>
+      <li><strong>2 (Er):</strong> Represents harmony and pairs. Good for relationships.</li>
+    </ul>
+
+    <h3>The Most Unlucky Numbers</h3>
+    <ul>
+      <li><strong>4 (Si):</strong> Sounds almost exactly like "death" (死 si). Universally avoided.</li>
+      <li><strong>5 (Wu):</strong> Sounds like "not" (无 wu). Can negate the positive meaning of other numbers.</li>
+      <li><strong>7 (Qi):</strong> Sounds like "deceive" (欺 qi) and is associated with the ghost month.</li>
+    </ul>
+
+    <p>Want to go deeper? Learn about your <a href="wuxing.html">Five Elements</a> to understand your elemental lucky colors and directions.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="zodiac-signs.html">12 Zodiac Signs</a>
+      <a href="compatibility.html">Compatibility</a>
+      <a href="lucky-numbers.html">Lucky Numbers</a>
+      <a href="wuxing.html">Wu Xing</a>
+      <a href="countdown.html">Lunar New Year Countdown</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 ZodiacQuest. For entertainment purposes only.</p>
+  </div>
+</footer>
+
+<script src="assets/js/zodiac.js"></script>
+<script>
+(function(){
+  var luckyData = {
+    rat:    { lucky: [2,3], luckyColors:['blue','gold','green'], unlucky:[5,9], unluckyColors:['yellow','brown'], emoji:'🐀' },
+    ox:     { lucky: [1,4], luckyColors:['white','yellow','green'], unlucky:[3,6], unluckyColors:['red','blue'], emoji:'🐂' },
+    tiger:  { lucky: [1,3,4], luckyColors:['blue','gray','orange'], unlucky:[6,7], unluckyColors:['white','gold'], emoji:'🐅' },
+    rabbit: { lucky: [3,4,9], luckyColors:['pink','red','purple'], unlucky:[1,7], unluckyColors:['dark brown','black'], emoji:'🐇' },
+    dragon: { lucky: [1,6,7], luckyColors:['gold','silver','gray'], unlucky:[3,8], unluckyColors:['red','green'], emoji:'🐉' },
+    snake:  { lucky: [2,8,9], luckyColors:['red','yellow','black'], unlucky:[1,6], unluckyColors:['white','gold'], emoji:'🐍' },
+    horse:  { lucky: [2,3,7], luckyColors:['red','green','gold'], unlucky:[1,5], unluckyColors:['blue','black'], emoji:'🐎' },
+    goat:   { lucky: [3,4,9], luckyColors:['brown','red','purple'], unlucky:[6,8], unluckyColors:['gold','white'], emoji:'🐐' },
+    monkey: { lucky: [4,9], luckyColors:['white','gold','blue'], unlucky:[2,7], unluckyColors:['red','pink'], emoji:'🐒' },
+    rooster:{ lucky: [5,7,8], luckyColors:['gold','brown','yellow'], unlucky:[1,3], unluckyColors:['red','green'], emoji:'🐔' },
+    dog:    { lucky: [3,4,9], luckyColors:['red','green','purple'], unlucky:[1,6], unluckyColors:['blue','white'], emoji:'🐕' },
+    pig:    { lucky: [2,5,8], luckyColors:['yellow','gray','brown'], unlucky:[3,7], unluckyColors:['red','dark blue'], emoji:'🐖' }
+  };
+
+  var names = { rat:'Rat', ox:'Ox', tiger:'Tiger', rabbit:'Rabbit', dragon:'Dragon', snake:'Snake', horse:'Horse', goat:'Goat', monkey:'Monkey', rooster:'Rooster', dog:'Dog', pig:'Pig' };
+
+  function showLucky() {
+    var sign = document.getElementById('zodiacSelect').value;
+    var d = luckyData[sign];
+    document.getElementById('resultEmoji').textContent = d.emoji;
+    document.getElementById('resultTitle').textContent = names[sign] + ' Lucky Numbers & Colors';
+    document.getElementById('luckyNumbers').textContent = d.lucky.join(', ');
+    document.getElementById('unluckyNumbers').textContent = d.unlucky.join(', ');
+    document.getElementById('luckyColors').textContent = d.luckyColors.join(', ');
+    document.getElementById('unluckyColors').textContent = d.unluckyColors.join(', ');
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  document.getElementById('calcBtn').addEventListener('click', showLucky);
+  document.getElementById('zodiacSelect').addEventListener('change', showLucky);
+  // Auto-show on load
+  showLucky();
+})();
+</script>
+<script src="assets/js/ads.js"></script>
+</body>
+</html>

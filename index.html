@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Zodiac Calculator | Find Your Sign & Traits</title>
+  <meta name="description" content="Discover your Chinese zodiac sign instantly. Enter your birth date to find your animal, element, personality traits, and compatibility."/>
+  <meta name="keywords" content="chinese zodiac calculator, chinese zodiac sign, zodiac animal, birth year zodiac, chinese astrology, zodiac traits">
+  <link rel="canonical" href="https://zodiacquest.pages.dev/">
+  <meta property="og:title" content="Chinese Zodiac Calculator - ZodiacQuest">
+  <meta property="og:description" content="Find your Chinese zodiac animal sign, element, and personality traits by birth date.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Chinese Zodiac Calculator",
+    "applicationCategory": "LifestyleApplication",
+    "description": "Calculate your Chinese zodiac animal sign by birth date.",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-icon">🐉</span>
+        <span>ZodiacQuest</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="/" class="active">Zodiac Calculator</a></li>
+          <li><a href="compatibility.html">Compatibility</a></li>
+          <li><a href="zodiac-signs.html">All Signs</a></li>
+          <li><a href="wuxing.html">Five Elements</a></li>
+          <li><a href="lucky-numbers.html">Lucky Numbers</a></li>
+          <li><a href="daily-horoscope.html">Daily Horoscope</a></li>
+          <li><a href="love-quiz.html">Love Quiz 💘</a></li>
+          <li><a href="countdown.html">Spring Festival</a></li>
+          <li><a href="blog/2026-zodiac-predictions.html">2026 Predictions</a></li>
+          <li><a href="blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="tagline">★ Chinese Astrology ★</div>
+      <h1>What's My Chinese Zodiac Sign?</h1>
+      <p class="subtitle">Enter your birth date to discover your animal sign, element, and personality traits</p>
+    </section>
+
+    <!-- Top Ad -->
+    <div class="ad-slot" data-ad-slot="top_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">🎂 Enter Your Birth Date</h2>
+      
+      <div class="form-group">
+        <label for="birthDate">Date of Birth</label>
+        <input type="date" id="birthDate" value="1990-01-01">
+      </div>
+      
+      <button class="btn btn-primary" id="calcBtn" style="width:100%">
+        ✨ Find My Zodiac Sign
+      </button>
+
+      <div class="result" id="result">
+        <div class="result-emoji" id="resultEmoji"></div>
+        <div class="result-name" id="resultName"></div>
+        
+        <div class="result-detail">
+          <div class="detail-item">
+            <div class="detail-label">Element</div>
+            <div class="detail-value" id="resultElement"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Birth Year</div>
+            <div class="detail-value" id="resultYear"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Lunar Age</div>
+            <div class="detail-value" id="resultLunarAge"></div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Yin/Yang</div>
+            <div class="detail-value" id="resultYinYang"></div>
+          </div>
+        </div>
+
+        <h3 style="color:var(--primary-dark); margin:1rem 0 0.5rem; font-size:1.1rem;">Personality Traits</h3>
+        <div class="traits" id="resultTraits"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-slot" data-ad-slot="bottom_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">🔥 Explore More Tools</h2>
+      <div class="tools-grid">
+        <a href="compatibility.html" class="tool-card">
+          <div class="tool-icon">💞</div>
+          <h3>Zodiac Compatibility</h3>
+          <p>Find out how compatible you are with your partner based on Chinese zodiac signs.</p>
+        </a>
+        <a href="zodiac-signs.html" class="tool-card">
+          <div class="tool-icon">📜</div>
+          <h3>All 12 Zodiac Signs</h3>
+          <p>Complete guide to all 12 Chinese zodiac animals with traits and year ranges.</p>
+        </a>
+        <a href="wuxing.html" class="tool-card">
+          <div class="tool-icon">🌀</div>
+          <h3>Five Elements (Wu Xing)</h3>
+          <p>Calculate your Wu Xing element and discover its influence on your life.</p>
+        </a>
+        <a href="countdown.html" class="tool-card">
+          <div class="tool-icon">🧧</div>
+          <h3>Spring Festival Countdown</h3>
+          <p>Counting down to Chinese New Year. Find the date and zodiac animal for next year.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">📖 About Chinese Zodiac</h2>
+      <p style="color:var(--text-light); line-height:1.8;">
+        The Chinese zodiac, known as <em>Shengxiao</em> (生肖), is a 12-year cycle where each year is represented by an animal sign. 
+        Unlike Western astrology which is based on months, the Chinese zodiac follows the lunar calendar and is deeply rooted in 
+        Chinese culture and traditions.
+      </p>
+      <p style="color:var(--text-light); line-height:1.8; margin-top:0.75rem;">
+        The 12 zodiac animals in order are: <strong>Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, and Pig</strong>. 
+        Each sign is also associated with one of the Five Elements (Wood, Fire, Earth, Metal, Water), creating a 60-year cycle.
+      </p>
+      <p style="color:var(--text-light); line-height:1.8; margin-top:0.75rem;">
+        Note: Chinese zodiac years follow the lunar calendar, so the year changes on Chinese New Year (usually between January 21 and February 20). 
+        Our calculator accounts for the exact lunar new year date.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>🐉 ZodiacQuest</h4>
+        <p style="font-size:0.9rem; line-height:1.6;">
+          Free online Chinese zodiac calculator and astrology tools. 
+          Discover your animal sign, explore compatibility, and learn about Chinese astrology traditions.
+        </p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="/">Zodiac Calculator</a>
+        <a href="compatibility.html">Compatibility Test</a>
+        <a href="zodiac-signs.html">All Zodiac Signs</a>
+        <a href="wuxing.html">Five Elements</a>
+        <a href="countdown.html">Spring Festival</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ZodiacQuest. All rights reserved. Made with ❤️ for Chinese astrology enthusiasts.
+    </div>
+  </footer>
+  <script src="assets/js/zodiac.js?v=3"></script>
+    <script src="assets/js/compat.js?v=3"></script>
+    <script src="assets/js/ads.js?v=4"></script>
+    <script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('show');
+    });
+
+    // Zodiac calculator
+    const birthDateInput = document.getElementById('birthDate');
+    const calcBtn = document.getElementById('calcBtn');
+    const resultDiv = document.getElementById('result');
+
+    function calculate() {
+      const date = birthDateInput.value;
+      if (!date) return;
+
+      const dateObj = new Date(date + 'T00:00:00');
+      const year = dateObj.getFullYear();
+      const month = dateObj.getMonth() + 1;
+      const day = dateObj.getDate();
+      const zodiac = ZodiacTools.getZodiacByBirthday(year, month, day);
+      const element = ZodiacTools.getElementByYear(year);
+      const lunarAge = new Date().getFullYear() - year + 1; // 虚岁
+      const yinYang = year % 2 === 0 ? 'Yang' : 'Yin';
+      
+      document.getElementById('resultEmoji').textContent = zodiac.emoji;
+      document.getElementById('resultName').textContent = element.name + ' ' + zodiac.name;
+      document.getElementById('resultElement').textContent = element.name + ' (' + element.emoji + ')';
+      document.getElementById('resultYear').textContent = year + '';
+      document.getElementById('resultLunarAge').textContent = lunarAge + ' (nominal age)';
+      document.getElementById('resultYinYang').textContent = yinYang;
+      
+      const traitsDiv = document.getElementById('resultTraits');
+      traitsDiv.innerHTML = zodiac.traits.map(t => `<span class="trait-tag">${t}</span>`).join('');
+      
+      resultDiv.classList.add('show');
+      resultDiv.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+
+    calcBtn.addEventListener('click', calculate);
+    birthDateInput.addEventListener('change', calculate);
+    
+    // Auto-calculate on load
+    calculate();
+  </script>
+</body>
+</html>

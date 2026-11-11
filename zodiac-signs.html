@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Chinese Zodiac Signs: Traits & Years Guide</title>
+  <meta property="og:title" content="12 Chinese Zodiac Signs — Meanings & Personality Traits">
+  <meta property="og:description" content="Explore all 12 Chinese zodiac animals and their meanings, traits, and compatibility.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zodiacquest.com/zodiac-signs.html">
+  <meta property="og:site_name" content="ZodiacQuest">
+  <meta name="description" content="Complete guide to all 12 Chinese zodiac animals. Discover personality traits, lucky numbers, colors, and birth years for each sign."/>
+  <meta name="keywords" content="12 chinese zodiac signs, chinese zodiac animals, zodiac signs years, zodiac personality traits, rat ox tiger rabbit dragon snake horse goat monkey rooster dog pig">
+  <link rel="canonical" href="https://zodiacquest.pages.dev/zodiac-signs.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "All 12 Chinese Zodiac Signs",
+    "description": "Complete guide to the twelve Chinese zodiac animals."
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-icon">🐉</span>
+        <span>ZodiacQuest</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="/">Zodiac Calculator</a></li>
+          <li><a href="compatibility.html">Compatibility</a></li>
+          <li><a href="zodiac-signs.html" class="active">All Signs</a></li>
+          <li><a href="wuxing.html">Five Elements</a></li>
+          <li><a href="lucky-numbers.html">Lucky Numbers</a></li>
+          <li><a href="daily-horoscope.html">Daily Horoscope</a></li>
+          <li><a href="countdown.html">Spring Festival</a></li>
+          <li><a href="blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="tagline">★ The 12 Animals ★</div>
+      <h1>All 12 Chinese Zodiac Signs</h1>
+      <p class="subtitle">Click any sign to learn more about its traits, lucky numbers, and birth years</p>
+    </section>
+
+    <div class="ad-slot" data-ad-slot="top_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="zodiac-wheel" id="zodiacWheel"></div>
+
+    <div class="card">
+      <h2 class="card-title">📋 All Signs Quick Reference</h2>
+      <div class="signs-list" id="signsList"></div>
+    </div>
+
+    <div class="ad-slot" data-ad-slot="bottom_banner">
+      <span class="ad-placeholder">— Advertisement —</span>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">📖 The Great Race Legend</h2>
+      <p style="color:var(--text-light); line-height:1.8;">
+        According to Chinese legend, the order of the zodiac animals was determined by the Great Race. 
+        The Jade Emperor invited all animals to a race across a river, and the first twelve to cross 
+        would be honored in the zodiac.
+      </p>
+      <p style="color:var(--text-light); line-height:1.8; margin-top:0.75rem;">
+        The clever Rat hitched a ride on the Ox's back, jumping off at the last moment to take first place. 
+        The hardworking Ox came second. The strong Tiger finished third, and the graceful Rabbit fourth. 
+        The mighty Dragon arrived fifth, and the sneaky Snake sixth. The Horse and Goat arrived together, 
+        placing seventh and eighth. The playful Monkey swung into ninth, and the proud Rooster crowed tenth. 
+        The loyal Dog came eleventh, and the relaxed Pig — who had stopped for a nap — finished twelfth.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>🐉 ZodiacQuest</h4>
+        <p style="font-size:0.9rem; line-height:1.6;">
+          Free online Chinese zodiac calculator and astrology tools.
+        </p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="/">Zodiac Calculator</a>
+        <a href="compatibility.html">Compatibility Test</a>
+        <a href="zodiac-signs.html">All Zodiac Signs</a>
+        <a href="wuxing.html">Five Elements</a>
+        <a href="countdown.html">Spring Festival</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ZodiacQuest. All rights reserved.
+    </div>
+  </footer>
+  <script src="assets/js/zodiac.js?v=3"></script>
+    <script src="assets/js/compat.js?v=3"></script>
+    <script src="assets/js/ads.js?v=4"></script>
+    <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navMenu').classList.toggle('show');
+    });
+
+    // Zodiac wheel
+    const wheel = document.getElementById('zodiacWheel');
+    ChineseZodiac.ZODIACS.forEach((z, i) => {
+      const item = document.createElement('a');
+      item.className = 'zodiac-wheel-item';
+      item.href = '#' + z.name.toLowerCase();
+      item.innerHTML = `<div class="wheel-emoji">${z.emoji}</div><div class="wheel-name">${z.name}</div>`;
+      item.style.setProperty('--i', i);
+      wheel.appendChild(item);
+    });
+
+    // Signs list
+    const list = document.getElementById('signsList');
+    const currentYear = new Date().getFullYear();
+    ChineseZodiac.ZODIACS.forEach((z, i) => {
+      const years = [];
+      // Show 5 recent years
+      for (let y = currentYear - 60; y <= currentYear + 12; y++) {
+        if (ChineseZodiac.getZodiacIndexByYear(y) === i) years.push(y);
+      }
+      const yearStr = years.slice(-5).join(', ');
+      
+      const card = document.createElement('div');
+      card.className = 'sign-card';
+      card.id = z.name.toLowerCase();
+      card.innerHTML = `
+        <div class="sign-emoji">${z.emoji}</div>
+        <div class="sign-info">
+          <h3>${z.name} <span style="font-size:0.85rem; color:var(--text-light); font-weight:normal;">#${i + 1}</span></h3>
+          <div style="color:var(--text-light); font-size:0.9rem; margin:0.25rem 0 0.5rem;">
+            <strong>Years:</strong> ${yearStr}... &nbsp;|&nbsp;
+            <strong>Element:</strong> ${z.element.name} &nbsp;|&nbsp;
+            <strong>${z.yinYang.charAt(0).toUpperCase() + z.yinYang.slice(1)}</strong>
+          </div>
+          <div style="margin-bottom:0.5rem;">
+            ${z.traits.map(t => `<span class="trait-tag">${t}</span>`).join('')}
+          </div>
+          <p style="color:var(--text-light); line-height:1.7; font-size:0.95rem;">${z.description}</p>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+  </script>
+</body>
+</html>

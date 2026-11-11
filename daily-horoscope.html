@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Chinese Horoscope | Today's Fortune</title>
+  <meta property="og:title" content="Daily Chinese Horoscope — Today's Luck for All Signs">
+  <meta property="og:description" content="Your daily Chinese horoscope. Check love, career, wealth & health luck for all 12 zodiac signs today.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zodiacquest.com/daily-horoscope.html">
+  <meta property="og:site_name" content="ZodiacQuest">
+<meta name="description" content="Get your free daily Chinese horoscope reading. Check today's luck in love, career, wealth, and health for all 12 zodiac signs."/>
+<meta name="keywords" content="daily horoscope, chinese horoscope today, daily zodiac fortune, today's horoscope, free daily reading">
+<link rel="canonical" href="https://zodiacquest.pages.dev/daily-horoscope.html">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Daily Chinese Horoscope",
+  "url": "https://zodiacquest.pages.dev/daily-horoscope.html",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">🐉 ZodiacQuest</a>
+    <nav class="main-nav">
+      <a href="index.html">Calculator</a>
+      <a href="zodiac-signs.html">12 Signs</a>
+      <a href="compatibility.html">Compatibility</a>
+      <a href="lucky-numbers.html">Lucky Numbers</a>
+      <a href="wuxing.html">Wu Xing</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="tool-section">
+    <div class="ad-placeholder ad-top" data-ad-slot="top"></div>
+
+    <h1>Today's Chinese Horoscope</h1>
+    <p class="subtitle">Select your zodiac sign to see today's fortune in love, career, wealth, and health.</p>
+    <p class="horoscope-date" id="horoDate"></p>
+
+    <div class="zodiac-picker">
+      <button class="zodiac-btn" data-sign="rat">🐀<br>Rat</button>
+      <button class="zodiac-btn" data-sign="ox">🐂<br>Ox</button>
+      <button class="zodiac-btn" data-sign="tiger">🐅<br>Tiger</button>
+      <button class="zodiac-btn" data-sign="rabbit">🐇<br>Rabbit</button>
+      <button class="zodiac-btn" data-sign="dragon">🐉<br>Dragon</button>
+      <button class="zodiac-btn" data-sign="snake">🐍<br>Snake</button>
+      <button class="zodiac-btn" data-sign="horse">🐎<br>Horse</button>
+      <button class="zodiac-btn" data-sign="goat">🐐<br>Goat</button>
+      <button class="zodiac-btn" data-sign="monkey">🐒<br>Monkey</button>
+      <button class="zodiac-btn" data-sign="rooster">🐔<br>Rooster</button>
+      <button class="zodiac-btn" data-sign="dog">🐕<br>Dog</button>
+      <button class="zodiac-btn" data-sign="pig">🐖<br>Pig</button>
+    </div>
+
+    <div id="horoResult" class="result-card horoscope-result" style="display:none;">
+      <div class="result-header">
+        <span id="horoEmoji" class="result-emoji"></span>
+        <div>
+          <h2 id="horoSign"></h2>
+          <p id="horoDateBelow" class="horoscope-date"></p>
+        </div>
+      </div>
+
+      <div class="overall-score">
+        <h3>Overall Luck</h3>
+        <div class="stars" id="overallStars"></div>
+        <p id="overallText" class="horo-text"></p>
+      </div>
+
+      <div class="horo-categories">
+        <div class="horo-card love">
+          <h3>💕 Love & Relationships</h3>
+          <div class="stars" id="loveStars"></div>
+          <p id="loveText"></p>
+        </div>
+        <div class="horo-card career">
+          <h3>💼 Career & Work</h3>
+          <div class="stars" id="careerStars"></div>
+          <p id="careerText"></p>
+        </div>
+        <div class="horo-card wealth">
+          <h3>💰 Wealth & Finance</h3>
+          <div class="stars" id="wealthStars"></div>
+          <p id="wealthText"></p>
+        </div>
+        <div class="horo-card health">
+          <h3>🏥 Health & Wellness</h3>
+          <div class="stars" id="healthStars"></div>
+          <p id="healthText"></p>
+        </div>
+      </div>
+
+      <div class="lucky-today">
+        <h3>🍀 Today's Lucky Picks</h3>
+        <div class="lucky-picks-grid">
+          <div><strong>Lucky Number:</strong> <span id="luckyNum"></span></div>
+          <div><strong>Lucky Color:</strong> <span id="luckyColor"></span></div>
+          <div><strong>Lucky Direction:</strong> <span id="luckyDir"></span></div>
+        </div>
+      </div>
+
+      <div class="tip-of-day">
+        <h3>💫 Tip of the Day</h3>
+        <p id="tipText"></p>
+      </div>
+    </div>
+
+    <div class="ad-placeholder ad-bottom" data-ad-slot="bottom"></div>
+  </section>
+
+  <section class="content-section">
+    <h2>How Daily Horoscopes Work</h2>
+    <p>Daily Chinese horoscopes are calculated based on the interaction between your zodiac animal and the celestial energies of the day. The Chinese calendar uses a 60-year cycle combining the 12 zodiac animals with the 5 elements, creating unique energy patterns each day.</p>
+
+    <h3>What Affects Your Daily Fortune</h3>
+    <ul>
+      <li><strong>The day's zodiac animal:</strong> Some signs clash or harmonize with the day's energy</li>
+      <li><strong>Your element:</strong> Whether your personal element is strengthened or challenged today</li>
+      <li><strong>Yin/Yang balance:</strong> The day's polarity relative to your sign</li>
+      <li><strong>Lunar phases:</strong> Moon cycles influence emotional and financial luck</li>
+    </ul>
+
+    <h3>Make the Most of Your Reading</h3>
+    <p>Check your horoscope at the start of your day to align your decisions with favorable energy. On high-luck days, take bold action and start new projects. On lower-energy days, focus on maintenance and rest.</p>
+
+    <p>For a more in-depth reading, try our <a href="compatibility.html">zodiac compatibility test</a> to see how you connect with others, or explore your <a href="wuxing.html">Five Elements profile</a>.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="zodiac-signs.html">12 Zodiac Signs</a>
+      <a href="compatibility.html">Compatibility</a>
+      <a href="lucky-numbers.html">Lucky Numbers</a>
+      <a href="wuxing.html">Wu Xing</a>
+      <a href="countdown.html">Lunar New Year Countdown</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>© 2026 ZodiacQuest. For entertainment purposes only.</p>
+  </div>
+</footer>
+
+<script src="assets/js/zodiac.js"></script>
+<script>
+(function(){
+  var horoData = {
+    rat:    { emoji:'🐀', name:'Rat', 
+      overall:['A productive day for strategic planning. Your sharp mind is in top form.','Social connections bring unexpected opportunities today.','Stay focused — there may be minor distractions but you can handle them.','A day of hidden opportunities. Trust your instincts.'],
+      love:['A thoughtful gesture from someone special brightens your day.','Single? Someone new catches your eye at work or school.','Take time to nurture an important relationship.'],
+      career:['An unexpected project showcases your skills. Volunteer for it.','Teamwork leads to breakthrough results. Collaborate freely.','A mentor figure offers valuable advice. Listen carefully.'],
+      wealth:['A small financial surprise comes your way. Invest wisely.','Budget review reveals savings opportunities.','Avoid impulsive purchases today.'],
+      health:['Good energy levels. A short walk boosts your mood further.','Stay hydrated and avoid heavy foods.','Sleep quality improves with an earlier bedtime.'],
+      colors:['blue','gold','green'], directions:['Northeast','North','Southwest'], numbers:[2,3,8] },
+    ox:     { emoji:'🐂', name:'Ox',
+      overall:['Steady progress is your theme today. Keep doing what you do best.','Your reliability is noticed by someone in a position to help.','A calm approach solves a problem that has others stressed.'],
+      love:['Quality time with a loved one deepens your bond.','Actions speak louder than words today. Show, don\'t just say.','A slow-burning connection grows stronger.'],
+      career:['A routine task contains a hidden opportunity for improvement.','Your methodical approach impresses those around you.','Patience pays off as a long-term project moves forward.'],
+      wealth:['Slow and steady wins the race. Stick to your financial plan.','A conservative investment approach serves you well today.','Look for value in unexpected places.'],
+      health:['Your stamina is excellent. Push your workout a bit further.','Neck and shoulder tension calls for stretching breaks.','Fresh air does wonders for your energy.'],
+      colors:['white','yellow','green'], directions:['North','East','Southeast'], numbers:[1,4,9] },
+    tiger:  { emoji:'🐅', name:'Tiger',
+      overall:['Your charisma is at peak levels today. Use it wisely.','Bold moves are favored. Don\'t hold back on something you want.','Watch your temper — passion can tip into impatience.'],
+      love:['Passion runs high. Channel it into meaningful connection.','A bold romantic gesture pays off handsomely.','Your magnetism draws admirers. Choose carefully.'],
+      career:['Take the lead on a project that excites you.','A risk at work could yield big rewards. Calculate but act.','Your vision inspires your team to new heights.'],
+      wealth:['An exciting financial opportunity presents itself. Research thoroughly.','Bold investment moves are favored — but only with money you can afford to risk.','Avoid get-rich-quick schemes.'],
+      health:['High energy but watch for burnout. Pace yourself.','An active sport or intense workout is exactly what you need.','Stress management is key today. Try meditation.'],
+      colors:['orange','blue','gray'], directions:['East','South','North'], numbers:[1,3,4] },
+    rabbit: { emoji:'🐇', name:'Rabbit',
+      overall:['A peaceful and harmonious day unfolds. Enjoy the calm.','Your gentle approach disarms a tense situation.','Beauty and aesthetics bring you joy today.'],
+      love:['Romance blossoms in quiet, intimate moments.','A kind word goes a long way in strengthening your bond.','Someone has been admiring you from afar.'],
+      career:['Diplomacy is your superpower today. Mediate conflicts gracefully.','Creative ideas flow easily. Capture them all.','A calm approach earns trust and respect.'],
+      wealth:['Financial stability is your reward for careful planning.','Beauty or art-related purchases bring lasting pleasure.','Avoid financial risks — conservative is best today.'],
+      health:['Mental peace supports physical wellbeing.','Treat yourself to something relaxing — a bath, nature, music.','Focus on gentle exercise like yoga or walking.'],
+      colors:['pink','red','purple'], directions:['East','South','North'], numbers:[3,4,9] },
+    dragon: { emoji:'🐉', name:'Dragon',
+      overall:['A powerful day with big energy. Take charge and make things happen.','Leadership opportunities come your way naturally.','Your confidence is magnetic. People follow your lead.'],
+      love:['Your confidence is incredibly attractive today.','Grand romantic gestures are favored and appreciated.','A relationship reaches an exciting new level.'],
+      career:['A leadership opportunity or promotion is in the air. Step up.','Your grand vision inspires everyone around you.','Big meetings or presentations go exceptionally well.'],
+      wealth:['Major financial opportunities may appear. Seize them with research.','Investments in your personal growth pay dividends.','Bold financial moves are favored for Dragon energy.'],
+      health:['Tremendous energy reserves. Use them constructively.','Watch for overexertion — you may not notice fatigue.','Remember to rest. Even dragons need recovery.'],
+      colors:['gold','silver','gray'], directions:['North','West','East'], numbers:[1,6,7] },
+    snake:  { emoji:'🐍', name:'Snake',
+      overall:['Your intuition is razor-sharp today. Trust your gut feelings.','Wisdom guides your decisions. You see what others miss.','A mysterious situation unfolds in your favor.'],
+      love:['Deep conversations strengthen emotional intimacy.','Someone is thinking about you more than they let on.','Mystery and allure work in your romantic favor.'],
+      career:['Behind-the-scenes work produces impressive results.','Research and analysis lead to a breakthrough insight.','Your strategic thinking is unmatched today.'],
+      wealth:['A wise investment decision pays off. Your research was correct.','Hidden financial opportunities reveal themselves to you.','Trust your analytical instincts with money today.'],
+      health:['Rest and recovery are important. Don\'t push too hard.','A health concern resolves with patience and proper care.','Focus on quality sleep and hydration.'],
+      colors:['red','yellow','black'], directions:['South','West','Northeast'], numbers:[2,8,9] },
+    horse:  { emoji:'🐎', name:'Horse',
+      overall:['Freedom and movement define your day. Go where your energy takes you.','Social encounters bring unexpected joy and opportunities.','Your energy is contagious. Spread it wisely.'],
+      love:['Adventure and spontaneity spice up your love life.','A trip or outing brings a couple closer together.','Flirting comes naturally — and it\'s reciprocated.'],
+      career:['Travel or new learning opportunities appear. Say yes.','Your enthusiasm motivates the whole team.','A change of scenery sparks creative ideas.'],
+      wealth:['Money from an unexpected source arrives.','Travel or education investments are favored.','Avoid spreading yourself too thin financially.'],
+      health:['High energy — perfect for sports and outdoor activities.','Be careful with speed and accidents. Stay alert.','Legs and feet need extra care. Wear comfortable shoes.'],
+      colors:['red','green','gold'], directions:['South','East','West'], numbers:[2,3,7] },
+    goat:   { emoji:'🐐', name:'Goat',
+      overall:['A day for nurturing yourself and others. Kindness is your superpower.','Creative expression brings deep satisfaction.','Your gentle strength supports someone who needs it.'],
+      love:['Emotional intimacy deepens with tender care.','A creative shared activity strengthens your bond.','Someone appreciates your thoughtfulness more than you know.'],
+      career:['Creative projects thrive under your touch.','Your artistic perspective adds value to a team project.','Nurturing younger colleagues earns you respect.'],
+      wealth:['Art or beauty-related purchases bring lasting value.','A financial worry eases with creative problem-solving.','Don\'t be too generous — protect your own resources too.'],
+      health:['Self-care is essential. Nurture your body and soul.','Mood and nutrition are deeply linked today. Eat well.','A calming environment supports your wellbeing.'],
+      colors:['brown','red','purple'], directions:['South','Southwest','East'], numbers:[3,4,9] },
+    monkey: { emoji:'🐒', name:'Monkey',
+      overall:['Your cleverness solves problems that stumped everyone else.','Fun and laughter are on the agenda. Enjoy the ride.','A trick of fate works in your favor unexpectedly.'],
+      love:['Playful banter keeps things exciting.','Humor diffuses a tense situation with your partner.','Your playful side is irresistibly charming.'],
+      career:['Creative problem-solving saves the day. Think outside the box.','A lighthearted approach wins people over.','Quick thinking turns a mistake into an opportunity.'],
+      wealth:['A clever idea generates extra income.','Smart shopping finds great deals. Stay alert.','Avoid gambling — play it safe with money today.'],
+      health:['Mental energy is high; physical energy may fluctuate.','Laughter really is the best medicine today.','Watch your diet — junk food temptation is strong.'],
+      colors:['white','gold','blue'], directions:['West','North','East'], numbers:[4,9,7] },
+    rooster:{ emoji:'🐔', name:'Rooster',
+      overall:['Details matter today. Your precision is an asset.','Hard work and discipline get noticed by the right people.','A matter of integrity tests you — choose the higher road.'],
+      love:['Honesty strengthens trust in a relationship.','A direct approach to romance works better than games.','Showing your true self draws the right person closer.'],
+      career:['Meticulous work earns praise. Your standards are high and respected.','Organizing or planning tasks set you up for future success.','A promotion or recognition could be on the horizon.'],
+      wealth:['A budget review reveals savings opportunities.','Long-term financial planning is favored today.','Your disciplined approach builds lasting wealth.'],
+      health:['A health routine adjustment yields positive results.','Focus on nutrition quality over quantity.','Dental or bone health deserves attention.'],
+      colors:['gold','brown','yellow'], directions:['West','South','Center'], numbers:[5,7,8] },
+    dog:    { emoji:'🐕', name:'Dog',
+      overall:['Loyalty and friendship are highlighted. Cherish your people.','Someone has your back when you least expect it.','A moral dilemma resolves when you follow your heart.'],
+      love:['Loyalty and trust deepen a romantic bond.','A friend might become something more. Pay attention.','Your protective instinct comes through beautifully.'],
+      career:['Teamwork produces the best results. Support your colleagues.','Your honesty and reliability build a strong reputation.','A work friendship deepens into something meaningful.'],
+      wealth:['Shared financial ventures show promise. Partner wisely.','Loyalty in financial matters pays long-term dividends.','Avoid risky solo investments. Safety first.'],
+      health:['A loyal workout buddy helps you stay on track.','Stress relief comes from spending time with loved ones.','Anxiety may spike — talk it out with someone you trust.'],
+      colors:['red','green','purple'], directions:['South','East','Northwest'], numbers:[3,4,9] },
+    pig:    { emoji:'🐖', name:'Pig',
+      overall:['Abundance flows toward you today. Receive gracefully.','Pleasant surprises come in social and romantic situations.','Your generous spirit returns to you multiplied.'],
+      love:['Romance and affection flow freely. Enjoy the sweetness.','A generous gesture makes someone very happy.','Pure, genuine connection is available to you.'],
+      career:['Recognition for your hard work arrives. Accept it humbly.','A team project benefits greatly from your contribution.','Your positive attitude makes work enjoyable for everyone.'],
+      wealth:['Financial good fortune smiles on you today.','Generosity with others creates karmic returns.','Indulge a little — but don\'t go overboard.'],
+      health:['Overall good health and vitality. Enjoy it!','Digestive system needs care. Don\'t overindulge.','Pleasant physical activities like dancing are favored.'],
+      colors:['yellow','gray','brown'], directions:['North','Northeast','East'], numbers:[2,5,8] }
+  };
+
+  function seededRandom(seed) {
+    var x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  }
+
+  function getDailyIndex(sign) {
+    var today = new Date();
+    var seed = today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate() + sign.charCodeAt(0) * 17;
+    return Math.floor(seededRandom(seed) * 100);
+  }
+
+  function starRating(count) {
+    var stars = '';
+    for (var i = 0; i < 5; i++) {
+      stars += i < count ? '⭐' : '☆';
+    }
+    return stars;
+  }
+
+  function showHoroscope(sign) {
+    var data = horoData[sign];
+    var idx = getDailyIndex(sign);
+    var seed = idx;
+
+    // Overall
+    var overallScore = 3 + (seed % 3); // 3-5 stars
+    document.getElementById('horoEmoji').textContent = data.emoji;
+    document.getElementById('horoSign').textContent = data.name + ' Horoscope';
+    document.getElementById('overallStars').textContent = starRating(overallScore);
+    document.getElementById('overallText').textContent = data.overall[seed % data.overall.length];
+
+    // Categories
+    var cats = ['love','career','wealth','health'];
+    cats.forEach(function(cat, i) {
+      var s = 2 + ((seed + i * 7) % 4); // 2-5 stars
+      document.getElementById(cat + 'Stars').textContent = starRating(s);
+      var arr = data[cat];
+      document.getElementById(cat + 'Text').textContent = arr[(seed + i * 3) % arr.length];
+    });
+
+    // Lucky picks
+    document.getElementById('luckyNum').textContent = data.numbers[seed % data.numbers.length];
+    document.getElementById('luckyColor').textContent = data.colors[(seed + 2) % data.colors.length];
+    document.getElementById('luckyDir').textContent = data.directions[(seed + 4) % data.directions.length];
+
+    // Tip
+    var tips = [
+      'Start the day with a clear intention of what you want to accomplish.',
+      'Take three deep breaths before making any important decision.',
+      'A kind word to a stranger creates ripples of positive energy.',
+      'Drink more water — hydration is key to maintaining your luck.',
+      'Smile at yourself in the mirror. It sets a positive tone.',
+      'Leave a little early today. Rushing kills good fortune.',
+      'Write down three things you are grateful for right now.',
+      'Call someone you haven\'t spoken to in a while.'
+    ];
+    document.getElementById('tipText').textContent = tips[seed % tips.length];
+
+    document.getElementById('horoResult').style.display = 'block';
+    document.getElementById('horoResult').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // Date display
+  var today = new Date();
+  var options = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  var dateStr = today.toLocaleDateString('en-US', options);
+  document.getElementById('horoDate').textContent = dateStr;
+  document.getElementById('horoDateBelow').textContent = dateStr;
+
+  // Bind buttons
+  var buttons = document.querySelectorAll('.zodiac-btn');
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      showHoroscope(btn.dataset.sign);
+    });
+  });
+})();
+</script>
+<script src="assets/js/ads.js"></script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zodiac Love Match Quiz — Are You Compatible?</title>
+<meta name="description" content="Take our fun zodiac love match quiz! Answer 10 quick questions to find your compatibility score and relationship insight based on Chinese astrology."/>
+<link rel="canonical" href="https://zodiacquest.com/love-quiz.html"/>
+<meta property="og:title" content="Zodiac Love Match Quiz — Are You Compatible?"/>
+<meta property="og:description" content="Take our fun zodiac love match quiz! Find your compatibility score and relationship insight based on Chinese astrology."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://zodiacquest.com/love-quiz.html"/>
+<meta property="og:site_name" content="ZodiacQuest"/>
+<meta name="robots" content="index, follow"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#fff5f5 0%,#fff0f5 100%);color:#333;line-height:1.7;min-height:100vh}
+nav{background:#fff;border-bottom:1px solid #ffd6d6;padding:10px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(255,105,135,0.08)}
+nav .nav-inner{max-width:600px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#e91e63;text-decoration:none;font-weight:600;font-size:0.95rem}
+nav .logo{font-size:1.1rem}
+.container{max-width:600px;margin:0 auto;padding:20px}
+header{text-align:center;padding:30px 0 20px}
+header h1{font-size:1.8rem;color:#c2185b;margin-bottom:10px}
+header p{color:#888;font-size:1rem}
+.quiz-card{background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(233,30,99,0.1);padding:30px;margin-bottom:20px}
+.progress-bar{height:6px;background:#ffe0e6;border-radius:3px;margin-bottom:25px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#ff6b9d,#e91e63);border-radius:3px;transition:width .4s ease;width:0%}
+.question-num{font-size:0.85rem;color:#e91e63;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.question-text{font-size:1.25rem;font-weight:700;color:#333;margin-bottom:20px;line-height:1.4}
+.options{display:flex;flex-direction:column;gap:12px}
+.option-btn{width:100%;padding:16px 20px;border:2px solid #ffd6d6;border-radius:12px;background:#fff;cursor:pointer;text-align:left;font-size:1rem;transition:all .2s;color:#333}
+.option-btn:hover{border-color:#e91e63;background:#fff5f7;transform:translateX(4px)}
+.option-btn.selected{border-color:#e91e63;background:#fff0f5;color:#c2185b;font-weight:600}
+.option-btn .emoji{font-size:1.3rem;margin-right:8px}
+.next-btn{display:block;width:100%;margin-top:25px;padding:15px;background:linear-gradient(135deg,#ff6b9d 0%,#e91e63 100%);color:#fff;border:none;border-radius:12px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s}
+.next-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(233,30,99,0.3)}
+.next-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.start-screen{text-align:center}
+.start-screen .icon{font-size:5rem;margin-bottom:15px}
+.start-screen p{margin-bottom:20px;color:#666}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:25px 0;text-align:center}
+.feature{background:#fff5f7;padding:15px;border-radius:10px}
+.feature .emoji{font-size:1.8rem;margin-bottom:5px;display:block}
+.feature .label{font-size:0.8rem;color:#c2185b;font-weight:600}
+.result-card{text-align:center}
+.result-card .big-emoji{font-size:5rem;margin-bottom:10px}
+.result-score{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#ff6b9d,#e91e63);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:10px 0}
+.result-title{font-size:1.5rem;font-weight:700;color:#c2185b;margin-bottom:10px}
+.result-desc{color:#666;margin-bottom:25px;line-height:1.6}
+.result-details{background:#fff5f7;border-radius:12px;padding:20px;margin:20px 0;text-align:left}
+.detail-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #ffd6d6}
+.detail-row:last-child{border-bottom:none}
+.detail-label{font-weight:600;color:#c2185b;font-size:0.9rem}
+.detail-value{font-weight:700;color:#333}
+.hearts{color:#e91e63;letter-spacing:2px}
+.result-cta{display:flex;gap:10px;margin-top:20px}
+.result-cta button{flex:1;padding:14px;border-radius:10px;font-weight:600;cursor:pointer;transition:all .2s;font-size:0.95rem}
+.retry-btn{background:#fff;border:2px solid #e91e63;color:#e91e63}
+.retry-btn:hover{background:#fff5f7}
+.share-btn{background:linear-gradient(135deg,#ff6b9d,#e91e63);color:#fff;border:none}
+.share-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(233,30,99,0.3)}
+footer{text-align:center;padding:30px 20px;color:#999;font-size:0.85rem;margin-top:20px}
+footer a{color:#e91e63;text-decoration:none;margin:0 8px}
+@media(max-width:600px){.quiz-card{padding:20px}header h1{font-size:1.4rem}.features{grid-template-columns:repeat(3,1fr);gap:8px}.result-score{font-size:2.8rem}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+<a href="/" class="logo">💕 ZodiacQuest</a>
+<a href="/compatibility.html">Compatibility</a>
+</div></nav>
+
+<div class="container">
+<header>
+<h1>Zodiac Love Match Quiz 💘</h1>
+<p>Discover your Chinese zodiac compatibility in 10 fun questions</p>
+</header>
+
+<div class="ad-slot" data-ad-slot="top_banner">
+  <span class="ad-placeholder">— Advertisement —</span>
+</div>
+
+<div class="quiz-card">
+<div id="startScreen" class="start-screen">
+<div class="icon">💘</div>
+<h2 style="margin-bottom:15px;color:#c2185b">Find Your Love Match Score</h2>
+<p>Answer 10 fun questions about you and your partner's zodiac signs to discover your true compatibility score — plus detailed relationship insights!</p>
+
+<div class="features">
+<div class="feature"><span class="emoji">🔮</span><span class="label">Accurate<br>Results</span></div>
+<div class="feature"><span class="emoji">⚡</span><span class="label">2 Minutes<br>Only</span></div>
+<div class="feature"><span class="emoji">🆓</span><span class="label">100%<br>Free</span></div>
+</div>
+
+<button class="next-btn" onclick="startQuiz()">Start Quiz →</button>
+<p style="margin-top:15px;font-size:0.8rem;color:#aaa">No signup required • Results instant</p>
+</div>
+
+<div id="quizScreen" style="display:none">
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="question-num">Question <span id="qNum">1</span> of 10</div>
+<div class="question-text" id="qText">Loading...</div>
+<div class="options" id="options"></div>
+<button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>Next →</button>
+</div>
+
+<div id="resultScreen" class="result-card" style="display:none">
+<div class="big-emoji" id="resultEmoji">💞</div>
+<div class="result-score" id="resultScore">0%</div>
+<div class="result-title" id="resultTitle">Your Compatibility Score</div>
+<div class="result-desc" id="resultDesc"></div>
+
+<div class="result-details">
+<div class="detail-row"><span class="detail-label">💘 Love Match</span><span class="detail-value"><span class="hearts" id="loveHearts">❤️❤️❤️</span></span></div>
+<div class="detail-row"><span class="detail-label">💼 Career Fit</span><span class="detail-value"><span class="hearts" id="careerHearts">❤️❤️❤️</span></span></div>
+<div class="detail-row"><span class="detail-label">💰 Financial</span><span class="detail-value"><span class="hearts" id="moneyHearts">❤️❤️❤️</span></span></div>
+<div class="detail-row"><span class="detail-label">🏠 Home Life</span><span class="detail-value"><span class="hearts" id="homeHearts">❤️❤️❤️</span></span></div>
+<div class="detail-row"><span class="detail-label">🗣️ Communication</span><span class="detail-value"><span class="hearts" id="commHearts">❤️❤️❤️</span></span></div>
+</div>
+
+<div id="zodiacMatchInfo" style="background:#fff0f5;border-radius:12px;padding:18px;margin:15px 0;text-align:left">
+<p style="color:#c2185b;font-weight:600;margin-bottom:8px">🔍 Based on Your Answers:</p>
+<p id="zodiacSummary" style="color:#666;font-size:0.95rem"></p>
+</div>
+
+<p style="font-size:0.9rem;color:#888">Want the full detailed reading with both your signs?</p>
+<a href="/compatibility.html" style="display:block;width:100%;padding:14px;background:linear-gradient(135deg,#ff6b9d,#e91e63);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;margin:12px 0;text-align:center">Get Full Compatibility Report →</a>
+
+<div class="result-cta">
+<button class="retry-btn" onclick="retryQuiz()">🔄 Retry Quiz</button>
+<button class="share-btn" onclick="shareResult()">📤 Share Result</button>
+</div>
+</div>
+</div>
+
+<article style="background:#fff;border-radius:16px;padding:25px;margin-top:20px;box-shadow:0 2px 12px rgba(233,30,99,0.06)">
+<h2 style="color:#c2185b;margin-bottom:15px;font-size:1.3rem">About This Zodiac Love Quiz</h2>
+<p>Our zodiac love match quiz combines traditional Chinese zodiac wisdom with modern relationship psychology to give you a fun and insightful compatibility reading.</p>
+<p style="margin-top:12px">Each question is designed to reveal key relationship dynamics between zodiac signs — communication style, emotional needs, life goals, and more — so you get a multi-dimensional view of your compatibility.</p>
+
+<h3 style="color:#e91e63;margin:20px 0 10px;font-size:1.1rem">How It Works</h3>
+<ul style="margin-left:20px;color:#555">
+<li>Answer 10 fun questions about your relationship preferences and dynamics</li>
+<li>Our algorithm analyzes your answers against Chinese zodiac compatibility principles</li>
+<li>Get an instant compatibility score with detailed breakdowns</li>
+<li>Explore your full zodiac compatibility report for even deeper insights</li>
+</ul>
+
+<h3 style="color:#e91e63;margin:20px 0 10px;font-size:1.1rem">What You'll Discover</h3>
+<ul style="margin-left:20px;color:#555">
+<li>Your overall love match score (0-100%)</li>
+<li>Breakdown by category: love, career, money, home life, communication</li>
+<li>Key strengths and challenges in your relationship</li>
+<li>Personalized tips for improving your compatibility</li>
+</ul>
+
+<h3 style="color:#e91e63;margin:20px 0 10px;font-size:1.1rem">Chinese Zodiac Compatibility Basics</h3>
+<p>In Chinese astrology, the 12 zodiac animals have specific relationship patterns:</p>
+<ul style="margin-left:20px;color:#555;margin-top:10px">
+<li><strong>San He (Three Harmonies):</strong> Tiger-Horse-Dog, Rat-Dragon-Monkey, Ox-Snake-Rooster, Rabbit-Goat-Pig</li>
+<li><strong>Liu He (Six Harmonies):</strong> Rat-Ox, Tiger-Pig, Rabbit-Dog, Dragon-Rooster, Snake-Monkey, Horse-Goat</li>
+<li><strong>Chong (Clashes):</strong> Rat-Horse, Ox-Goat, Tiger-Monkey, Rabbit-Rooster, Dragon-Dog, Snake-Pig</li>
+</ul>
+<p style="margin-top:12px">Ready to see where you stand? <strong>Scroll up and start the quiz!</strong> 💘</p>
+</article>
+
+<footer>
+<p>© 2026 ZodiacQuest — For entertainment purposes only</p>
+<p>
+<a href="/">Home</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+<a href="/contact.html">Contact</a>
+</p>
+</footer>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "What's your ideal date night?",
+    options: [
+      { text: "A fancy dinner at a nice restaurant", score: [6, 8, 5, 7, 9, 6, 8, 7, 5, 9, 6, 7] },
+      { text: "Staying in with a movie and takeout", score: [7, 9, 6, 8, 5, 7, 6, 9, 5, 8, 7, 9] },
+      { text: "An adventure — hiking, concert, travel", score: [5, 5, 9, 6, 8, 6, 10, 6, 9, 6, 8, 6] },
+      { text: "Trying something new together", score: [7, 6, 9, 7, 8, 7, 9, 7, 9, 7, 7, 8] }
+    ]
+  },
+  {
+    q: "How do you handle arguments with your partner?",
+    options: [
+      { text: "Talk it through immediately until resolved", score: [6, 7, 9, 5, 8, 6, 9, 6, 8, 7, 7, 6] },
+      { text: "Need space to cool down first", score: [7, 8, 6, 9, 6, 8, 6, 8, 6, 8, 7, 8] },
+      { text: "Try to find compromise and move on", score: [8, 9, 6, 8, 7, 7, 6, 9, 6, 7, 8, 9] },
+      { text: "I hate conflict — I'd rather avoid it", score: [6, 7, 5, 9, 5, 7, 5, 8, 5, 6, 8, 9] }
+    ]
+  },
+  {
+    q: "What matters most in a relationship?",
+    options: [
+      { text: "Trust and loyalty", score: [8, 9, 8, 7, 7, 8, 7, 8, 6, 8, 9, 9] },
+      { text: "Passion and excitement", score: [6, 5, 9, 6, 8, 6, 10, 6, 9, 6, 7, 6] },
+      { text: "Emotional connection", score: [7, 8, 6, 9, 6, 8, 6, 9, 6, 7, 8, 9] },
+      { text: "Shared goals and values", score: [9, 9, 7, 7, 9, 8, 7, 7, 7, 9, 8, 7] }
+    ]
+  },
+  {
+    q: "How important is money and financial stability to you?",
+    options: [
+      { text: "Very important — I plan everything", score: [8, 10, 7, 7, 8, 9, 6, 7, 7, 10, 7, 8] },
+      { text: "Important but not everything", score: [7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 8, 7] },
+      { text: "I'd rather enjoy life than save", score: [6, 5, 8, 6, 7, 5, 9, 7, 9, 5, 6, 8] },
+      { text: "Money comes and goes — I go with the flow", score: [6, 6, 7, 8, 6, 7, 8, 8, 8, 6, 7, 9] }
+    ]
+  },
+  {
+    q: "Your love language is:",
+    options: [
+      { text: "Words of affirmation", score: [7, 6, 7, 8, 8, 9, 7, 8, 8, 7, 7, 8] },
+      { text: "Acts of service", score: [8, 9, 7, 8, 7, 7, 6, 9, 6, 8, 9, 8] },
+      { text: "Quality time", score: [7, 7, 8, 9, 7, 7, 7, 9, 7, 7, 8, 9] },
+      { text: "Physical touch", score: [6, 5, 9, 6, 8, 6, 9, 7, 9, 6, 7, 7] }
+    ]
+  },
+  {
+    q: "What's your ideal weekend?",
+    options: [
+      { text: "Social events and seeing friends", score: [8, 6, 9, 6, 9, 7, 10, 6, 9, 7, 8, 7] },
+      { text: "Home projects and relaxation", score: [6, 9, 6, 8, 7, 7, 5, 8, 6, 8, 7, 8] },
+      { text: "Outdoor activities and sports", score: [6, 7, 10, 6, 8, 6, 10, 6, 9, 6, 9, 7] },
+      { text: "Learning something new", score: [7, 8, 7, 7, 9, 9, 7, 7, 9, 8, 7, 7] }
+    ]
+  },
+  {
+    q: "How do you feel about commitment?",
+    options: [
+      { text: "All in — forever is the goal", score: [8, 10, 7, 9, 8, 8, 6, 9, 6, 8, 9, 9] },
+      { text: "Take it one day at a time", score: [7, 7, 7, 8, 7, 7, 8, 8, 8, 7, 7, 8] },
+      { text: "I value my freedom in relationships", score: [6, 5, 9, 6, 7, 6, 10, 6, 9, 6, 7, 6] },
+      { text: "Commitment is easy with the right person", score: [8, 8, 8, 8, 8, 8, 8, 8, 7, 8, 8, 9] }
+    ]
+  },
+  {
+    q: "What turns you off the most?",
+    options: [
+      { text: "Dishonesty and secrets", score: [8, 9, 8, 8, 8, 8, 7, 8, 7, 9, 9, 9] },
+      { text: "Boredom and routine", score: [6, 6, 9, 6, 7, 6, 10, 6, 9, 6, 7, 6] },
+      { text: "Emotional unavailability", score: [7, 8, 6, 9, 6, 8, 6, 9, 6, 7, 8, 9] },
+      { text: "Lack of ambition", score: [7, 8, 8, 6, 9, 7, 8, 6, 7, 9, 7, 6] }
+    ]
+  },
+  {
+    q: "Which word describes your dream partner?",
+    options: [
+      { text: "Adventurous", score: [6, 5, 9, 6, 8, 6, 10, 6, 9, 6, 8, 6] },
+      { text: "Reliable", score: [8, 10, 7, 8, 8, 9, 6, 8, 6, 9, 9, 8] },
+      { text: "Romantic", score: [7, 7, 7, 9, 7, 8, 8, 9, 7, 7, 7, 9] },
+      { text: "Intelligent", score: [8, 8, 7, 7, 9, 9, 7, 7, 9, 9, 7, 7] }
+    ]
+  },
+  {
+    q: "How do you show someone you love them?",
+    options: [
+      { text: "Grand gestures and surprises", score: [6, 5, 9, 6, 9, 6, 10, 7, 9, 6, 7, 7] },
+      { text: "Consistent small acts of care", score: [8, 10, 7, 8, 7, 8, 6, 9, 6, 9, 9, 9] },
+      { text: "Deep conversations and listening", score: [7, 8, 6, 9, 8, 9, 6, 9, 8, 7, 8, 8] },
+      { text: "Physical affection and closeness", score: [6, 6, 9, 7, 7, 6, 9, 8, 8, 6, 7, 8] }
+    ]
+  }
+];
+
+let currentQ = 0;
+let scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let selectedOption = -1;
+let yourSign = -1;
+let partnerSign = -1;
+
+// Sign names for summary
+const signs = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'];
+const signEmojis = ['🐀','🐂','🐅','🐇','🐉','🐍','🐴','🐐','🐒','🐓','🐕','🐖'];
+
+function startQuiz() {
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  showQuestion(0);
+}
+
+function showQuestion(n) {
+  currentQ = n;
+  selectedOption = -1;
+  document.getElementById('qNum').textContent = n + 1;
+  document.getElementById('qText').textContent = questions[n].q;
+  document.getElementById('progressFill').style.width = (n * 10) + '%';
+  
+  const optionsDiv = document.getElementById('options');
+  optionsDiv.innerHTML = '';
+  
+  questions[n].options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = `<span class="emoji">${['A','B','C','D'][i]}</span>${opt.text}`;
+    btn.onclick = () => selectOption(i);
+    optionsDiv.appendChild(btn);
+  });
+  
+  document.getElementById('nextBtn').disabled = true;
+  document.getElementById('nextBtn').textContent = n === 9 ? 'See My Result →' : 'Next →';
+}
+
+function selectOption(i) {
+  selectedOption = i;
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((b, idx) => b.classList.toggle('selected', idx === i));
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+  if (selectedOption === -1) return;
+  
+  // Add scores
+  const qScores = questions[currentQ].options[selectedOption].score;
+  for (let i = 0; i < 12; i++) {
+    scores[i] += qScores[i];
+  }
+  
+  if (currentQ < 9) {
+    showQuestion(currentQ + 1);
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('progressFill').style.width = '100%';
+  
+  // Normalize scores to 0-100
+  let maxScore = 0;
+  let minScore = 999;
+  for (let i = 0; i < 12; i++) {
+    if (scores[i] > maxScore) maxScore = scores[i];
+    if (scores[i] < minScore) minScore = scores[i];
+  }
+  
+  // Your sign = highest scoring
+  yourSign = scores.indexOf(maxScore);
+  // Partner sign = second highest (different)
+  let secondMax = 0;
+  partnerSign = 0;
+  for (let i = 0; i < 12; i++) {
+    if (i !== yourSign && scores[i] > secondMax) {
+      secondMax = scores[i];
+      partnerSign = i;
+    }
+  }
+  
+  // Calculate compatibility between your sign and partner sign
+  const compatScore = calculateCompatibility(yourSign, partnerSign);
+  
+  // Animate score
+  let currentScore = 0;
+  const target = compatScore;
+  const anim = setInterval(() => {
+    currentScore += 2;
+    if (currentScore >= target) {
+      currentScore = target;
+      clearInterval(anim);
+    }
+    document.getElementById('resultScore').textContent = currentScore + '%';
+  }, 20);
+  
+  // Result message
+  let emoji, title, desc;
+  if (compatScore >= 90) {
+    emoji = '💞'; title = 'Soulmate Level Match!';
+    desc = 'Wow — you two have incredible zodiac compatibility! Your signs align beautifully in love, life, and long-term potential. Cherish this special connection.';
+  } else if (compatScore >= 75) {
+    emoji = '💕'; title = 'Great Match!';
+    desc = 'You have strong zodiac compatibility! Your signs complement each other well. With a little effort and understanding, this relationship has fantastic long-term potential.';
+  } else if (compatScore >= 60) {
+    emoji = '💗'; title = 'Good Match';
+    desc = 'You have solid zodiac compatibility with some areas to work on. Focus on understanding each other\'s differences and communicating openly — you can build something great.';
+  } else if (compatScore >= 45) {
+    emoji = '💛'; title = 'Challenging but Possible';
+    desc = 'Your zodiac signs have some natural differences. This doesn\'t mean it won\'t work — many strong couples have challenging zodiac matches. It just takes more effort and understanding.';
+  } else {
+    emoji = '💔'; title = 'Different Paths';
+    desc = 'Your zodiac signs face significant compatibility challenges. But remember — zodiac compatibility is just one factor. Many factors determine relationship success. Focus on communication and mutual respect.';
+  }
+  
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultDesc').textContent = desc;
+  
+  // Breakdown hearts
+  const breakDown = getBreakdown(yourSign, partnerSign);
+  document.getElementById('loveHearts').textContent = '❤️'.repeat(breakDown.love) + '🖤'.repeat(5 - breakDown.love);
+  document.getElementById('careerHearts').textContent = '❤️'.repeat(breakDown.career) + '🖤'.repeat(5 - breakDown.career);
+  document.getElementById('moneyHearts').textContent = '❤️'.repeat(breakDown.money) + '🖤'.repeat(5 - breakDown.money);
+  document.getElementById('homeHearts').textContent = '❤️'.repeat(breakDown.home) + '🖤'.repeat(5 - breakDown.home);
+  document.getElementById('commHearts').textContent = '❤️'.repeat(breakDown.comm) + '🖤'.repeat(5 - breakDown.comm);
+  
+  // Summary
+  document.getElementById('zodiacSummary').textContent = 
+    `Your answers suggest a ${signs[yourSign]} ${signEmojis[yourSign]} and ${signs[partnerSign]} ${signEmojis[partnerSign]} dynamic. Use our full compatibility calculator for a complete, personalized reading based on both your actual birth dates.`;
+}
+
+function calculateCompatibility(a, b) {
+  // San He groups (best matches)
+  const sanHe = [
+    [0, 4, 8],   // Rat, Dragon, Monkey
+    [1, 5, 9],   // Ox, Snake, Rooster
+    [2, 6, 10],  // Tiger, Horse, Dog
+    [3, 7, 11]   // Rabbit, Goat, Pig
+  ];
+  
+  // Liu He pairs (good matches)
+  const liuHe = [[0,1], [2,11], [3,10], [4,9], [5,8], [6,7]];
+  
+  // Chong pairs (clashes)
+  const chong = [[0,6], [1,7], [2,8], [3,9], [4,10], [5,11]];
+  
+  // Check relationship
+  let base = 60; // base score
+  
+  // Same sign
+  if (a === b) { base = 70; }
+  
+  // San He
+  for (let group of sanHe) {
+    if (group.includes(a) && group.includes(b) && a !== b) { base = 92; }
+  }
+  
+  // Liu He
+  for (let pair of liuHe) {
+    if ((pair[0] === a && pair[1] === b) || (pair[1] === a && pair[0] === b)) { base = 85; }
+  }
+  
+  // Chong
+  for (let pair of chong) {
+    if ((pair[0] === a && pair[1] === b) || (pair[1] === a && pair[0] === b)) { base = 38; }
+  }
+  
+  // Add random variance from quiz answers (±10)
+  const avgScore = (scores[a] + scores[b]) / 2;
+  const variance = Math.round((avgScore / 40 - 1) * 20);
+  base += variance;
+  
+  return Math.max(15, Math.min(98, base));
+}
+
+function getBreakdown(a, b) {
+  const diff = Math.abs(a - b);
+  const adj = (a + 1) % 12 === b || (b + 1) % 12 === a;
+  
+  // Rough breakdowns by sign pair type
+  const compat = calculateCompatibility(a, b);
+  
+  let love = 3, career = 3, money = 3, home = 3, comm = 3;
+  
+  if (compat >= 85) {
+    love = 5; career = 5; money = 4; home = 5; comm = 5;
+  } else if (compat >= 70) {
+    love = 4; career = 4; money = 4; home = 4; comm = 4;
+  } else if (compat >= 55) {
+    love = 3; career = 3; money = 3; home = 3; comm = 3;
+  } else {
+    love = 2; career = 2; money = 2; home = 2; comm = 2;
+  }
+  
+  return { love, career, money, home, comm };
+}
+
+function retryQuiz() {
+  currentQ = 0;
+  scores = [0,0,0,0,0,0,0,0,0,0,0,0];
+  selectedOption = -1;
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('startScreen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function shareResult() {
+  const score = document.getElementById('resultScore').textContent;
+  const text = `I scored ${score} on the Zodiac Love Match Quiz! 💘 Find your score: https://zodiacquest.com/love-quiz.html`;
+  
+  if (navigator.share) {
+    navigator.share({ title: 'Zodiac Love Match Quiz', text: text, url: 'https://zodiacquest.com/love-quiz.html' });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Result copied to clipboard! Share it with your friends 💌');
+    });
+  }
+}
+</script>
+
+<div class="ad-slot" data-ad-slot="bottom_banner">
+  <span class="ad-placeholder">— Advertisement —</span>
+</div>
+
+<script src="assets/js/ads.js?v=4"></script>
+</body>
+</html>
